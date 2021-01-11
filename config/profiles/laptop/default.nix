@@ -17,5 +17,5 @@ in
   environment.systemPackages = [
     pkgs.acpi
     pkgs.acpiPower
-  ]
+  ];
 }
