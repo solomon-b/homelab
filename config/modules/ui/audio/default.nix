@@ -6,5 +6,5 @@
     package = pkgs.pulseaudioFull;
   };
 
-  users.extraUsers.solomon.extraGroups = [ "audio" ]
+  users.extraUsers.solomon.extraGroups = [ "audio" ];
 }

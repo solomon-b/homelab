@@ -9,7 +9,7 @@ in
 
     ../../modules/system/devices/bluetooth
     ../../modules/system/devices/touchpad
-    ../../modules/system/devices/powertop
+    ../../modules/system/powertop
     # TODO: Setup Wifi Networks
     # ../../modules/system/devices/wifi
   ];

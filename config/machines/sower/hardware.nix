@@ -29,6 +29,11 @@
   # nix.buildCores = ???
   # nix.maxJobs = lib.mkDefault ???
 
-  networking.interfaces.eno1.useDHCP = true;
-  networking.interfaces.wlp1s0.useDHCP = true;
+  networking = {
+    wireless.enable = true;
+    interfaces.eno1.useDHCP = true;
+    interfaces.wlp1s0.ip4 = [{ address = "192.168.0.3"; prefixLength = 24; }];
+    defaultGateway = "192.168.0.1";
+    nameservers = [ "8.8.8.8" ];
+  };
 }

@@ -1,23 +1,23 @@
 { pkgs, ... }:
-let
-  sources = import ../../../sources.nix;
-in
+#let
+#  sources = import ../../../sources.nix;
+#in
 {
   imports = [
-    "${sources.home-manager}/nixos"
-    # ../../../modules
+    #"${sources.home-manager}/nixos"
+    ../../../modules
 
     # ../../modules/data/session-vars  # Home Manager
     # ../../modules/data/xdg-user-dirs # Home Manager
 
     ../../modules/security/process-information-hiding
-    # ../../modules/security/sshd  # Ask Connor
+    ../../modules/security/sshd
     # ../../modules/security/sudo  # Ask Connor
     # ../../modules/security/umask # Home Manager
 
     ../../modules/system/nix-binary-caches
     ../../modules/system/nixpkgs
-    # ../../modules/system/users   # Ask Connor
+    ../../modules/system/users
 
     # ../../modules/ui/bash       # Home Manager
     # ../../modules/ui/fzf        # Home Manager

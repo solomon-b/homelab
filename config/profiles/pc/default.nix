@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  kmonad = pkgs.callPackage ../../../packages/kmonad.nix pkgs;
+  kmonad = pkgs.callPackage ../../../packages/kmonad/derivation.nix { };
 in
 {
   imports = [
@@ -27,7 +27,7 @@ in
     ../../modules/ui/kmonad
     # ../../modules/ui/log    # Home Manager?
     ../../modules/ui/lorri
-    ./../modules/ui/opengl
+    ../../modules/ui/opengl
     ../../modules/ui/xserver
 
     # TODO: Write Modules:
@@ -38,12 +38,22 @@ in
   ];
 
   # promptColor = "cyan"; # Comes from zsh module
-  enableSshdAtBoot = false;
+  #enableSshdAtBoot = false;
 
-  users.extraUsers.solomon.extraGroups = [ "networkmanager" ];
+  users.users.solomon.extraGroups = [ "networkmanager" ];
 
-  networking.networkmanager.enable = true;
-  networking.useDHCP = false;
+  #networking.networkmanager.enable = true;
+  networking = {
+    wireless = {
+      enable = true;
+      networks = {
+        TP-LINK_0573_5G = {
+          pskRaw = "43c10b524fcb5286ff0242495ad099a837ff5fe9836bbffa1ae1831303884b7d";
+        };
+      };
+    };
+    useDHCP = false;
+  };
 
   system.stateVersion = "20.09";
 
