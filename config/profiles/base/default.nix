@@ -1,33 +1,33 @@
 { pkgs, ... }:
-#let
-#  sources = import ../../../sources.nix;
-#in
-{
+
+let
+  home-manager = builtins.fetchGit {
+    url = "https://github.com/rycee/home-manager.git";
+    rev = "22f6736e628958f05222ddaadd7df7818fe8f59d";
+    ref = "release-20.09";
+  };
+in{
   imports = [
-    #"${sources.home-manager}/nixos"
+    (imports ${home-manager}/nixos)
     ../../../modules
 
-    # ../../modules/data/session-vars  # Home Manager
-    # ../../modules/data/xdg-user-dirs # Home Manager
+    ../../modules/data/session-vars
 
+    ../../modules/security/gpg
     ../../modules/security/process-information-hiding
     ../../modules/security/sshd
     # ../../modules/security/sudo  # Ask Connor
-    # ../../modules/security/umask # Home Manager
 
     ../../modules/system/nix-binary-caches
     ../../modules/system/nixpkgs
     ../../modules/system/users
 
     # ../../modules/ui/bash       # Home Manager
-    # ../../modules/ui/fzf        # Home Manager
-    # ../../modules/ui/greeting   # Mingetty
-    # ../../modules/ui/htop       # Home Manager
-    # ../../modules/ui/less       # Home Manager
-    # ../../modules/ui/readline   # Home Manager
-    # ../../modules/ui/terminfo   # Home Manager
-    # ../../modules/ui/theme      # Home Manager
-    # ../../modules/ui/zsh        # Is This Home Manager?
+    ../../modules/ui/direnv
+    ../../modules/ui/git
+    ../../modules/ui/lorri
+    ../../modules/ui/starship
+    ../../modules/ui/zsh
 
     # TODO: Write modules:
     # ../../../modules/nixos/termonad.nix
@@ -58,4 +58,10 @@
     # Editors
     vimHugeX
   ];
+
+  programs.home-manager.enable = true;
+
+  home.username = "solomon";
+  home.homeDirectory = "/home/solomon";
+  home.stateVersion = "21.03";
 }

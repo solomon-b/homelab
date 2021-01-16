@@ -60,7 +60,7 @@ in
   environment.systemPackages = with pkgs; [
     # CLI Tools
     inetutils
-    kmonad
+    #kmonad
     udiskie
     rclone
     starship
