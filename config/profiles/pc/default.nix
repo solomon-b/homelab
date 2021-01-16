@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-let
-  kmonad = pkgs.callPackage ../../../packages/kmonad/derivation.nix { };
-in
 {
   imports = [
     ../physical-machine
@@ -39,6 +36,11 @@ in
 
   # promptColor = "cyan"; # Comes from zsh module
   #enableSshdAtBoot = false;
+
+  programs.kmonad = {
+    enable = true;
+    
+  };
 
   users.users.solomon.extraGroups = [ "networkmanager" ];
 

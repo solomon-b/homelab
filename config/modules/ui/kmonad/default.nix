@@ -1,6 +1,9 @@
 { config, pkgs, lib, ... }:
 
 let
+  kmonad = pkgs.callPackage ../../../../packages/kmonad/derivation.nix { };
+in
+let
   cfg = config.programs.kmonad;
   relToDotDir = file: (optionalString (cfg.dotDir != null) (cfg.dotDir + "/.config")) + file;
 in
@@ -45,7 +48,7 @@ in
       ${cfg.layers}
     '';
 
-    home.packages = [ pkgs.kmonad ]
+    home.packages = [ kmonad ]
 
     users.extraUsers.solomon.extraGroups = [ "uinput" ];
     users.groups = { uinput = {}; };
