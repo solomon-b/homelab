@@ -8,7 +8,7 @@ let
   };
 in{
   imports = [
-    (imports ${home-manager}/nixos)
+    (import ${home-manager}/nixos)
     ../../../modules
 
     ../../modules/data/session-vars

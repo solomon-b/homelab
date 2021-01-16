@@ -37,11 +37,6 @@
   # promptColor = "cyan"; # Comes from zsh module
   #enableSshdAtBoot = false;
 
-  programs.kmonad = {
-    enable = true;
-    
-  };
-
   users.users.solomon.extraGroups = [ "networkmanager" ];
 
   #networking.networkmanager.enable = true;

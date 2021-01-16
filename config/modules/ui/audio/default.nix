@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
+  config.primary-user.extraGroups = [ "audio" ];
+
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
   };
-
-  users.extraUsers.solomon.extraGroups = [ "audio" ];
 }

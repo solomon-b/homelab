@@ -1,7 +1,7 @@
-{ ... }:
+{ config, ... }:
 
 {
-  programs.starship = {
+  config.primary-user.home-manager.programs.starship = {
     enable = true;
     enableZshIntegration = true;
     settings = {
