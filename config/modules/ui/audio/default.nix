@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  config.primary-user.extraGroups = [ "audio" ];
+  primary-user.extraGroups = [ "audio" ];
 
   hardware.pulseaudio = {
     enable = true;

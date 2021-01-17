@@ -1,16 +1,20 @@
 { config, ... }:
 
+let
+  homeDir = config.primary-user.home-manager.home.homeDirectory;
+in
 {
-  home.sessionPath = [
-    "${config.home.homeDirectory}/.local/scripts"
-    "${config.home.homeDirectory}/.local/bin"
-    "${config.home.homeDirectory}/.cabal/bin"
-  ];
+  primary-user.home-manager.home = {
+    sessionPath = [
+      "${homeDir}/.local/scripts"
+      "${homeDir}/.local/bin"
+      "${homeDir}/.cabal/bin"
+    ];
 
-  home.sessionVariables = {
-    VISUAL = "vim";
-    EDITOR = "vim";
-    SCRIPTS = "${config.home.homeDirectory}/.local/scripts";
+    sessionVariables = {
+      VISUAL = "vim";
+      EDITOR = "vim";
+      SCRIPTS = "${homeDir}/.local/scripts";
+    };
   };
-
 }

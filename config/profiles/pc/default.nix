@@ -4,25 +4,18 @@
   imports = [
     ../physical-machine
 
-    # ../../modules/data/email # Home Manager
-    # ../../modules/data/git   # Home Manager
-
-    # ../../modules/security/get-aws-access-key # Home Manager
     ../../modules/security/gpg
-    # ../../modules/security/secure # What is this?
-    # ../../modules/security/ssh                # Home Manager
 
     ../../modules/system/docker
     ../../modules/system/virtualbox
     ../../modules/system/postgresql
 
     ../../modules/ui/audio
-    # ../../modules/ui/direnv # Home Manager
-    # ../../modules/ui/emacs  # Home Manager
-    # ../../modules/ui/gtk    # Home Manager
+     ../../modules/ui/direnv
+    # ../../modules/ui/emacs
     ../../modules/ui/fonts
+    ../../modules/ui/git
     ../../modules/ui/kmonad
-    # ../../modules/ui/log    # Home Manager?
     ../../modules/ui/lorri
     ../../modules/ui/opengl
     ../../modules/ui/xserver
@@ -37,9 +30,9 @@
   # promptColor = "cyan"; # Comes from zsh module
   #enableSshdAtBoot = false;
 
-  users.users.solomon.extraGroups = [ "networkmanager" ];
-
+  #users.users.solomon.extraGroups = [ "networkmanager" ];
   #networking.networkmanager.enable = true;
+
   networking = {
     wireless = {
       enable = true;

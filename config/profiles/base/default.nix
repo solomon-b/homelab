@@ -8,7 +8,7 @@ let
   };
 in{
   imports = [
-    (import ${home-manager}/nixos)
+    (import "${home-manager}/nixos")
     ../../../modules
 
     ../../modules/data/session-vars
@@ -23,9 +23,6 @@ in{
     ../../modules/system/users
 
     # ../../modules/ui/bash       # Home Manager
-    ../../modules/ui/direnv
-    ../../modules/ui/git
-    ../../modules/ui/lorri
     ../../modules/ui/starship
     ../../modules/ui/zsh
 
@@ -58,10 +55,4 @@ in{
     # Editors
     vimHugeX
   ];
-
-  programs.home-manager.enable = true;
-
-  home.username = "solomon";
-  home.homeDirectory = "/home/solomon";
-  home.stateVersion = "21.03";
 }
