@@ -6,8 +6,8 @@
 
     ../../modules/security/gpg
 
-    ../../modules/system/docker
-    ../../modules/system/virtualbox
+    # ../../modules/system/docker
+    # ../../modules/system/virtualbox
     ../../modules/system/postgresql
 
     ../../modules/ui/audio
@@ -27,23 +27,9 @@
     # ../../modules/ui/zathura # Home Manager
   ];
 
-  # promptColor = "cyan"; # Comes from zsh module
   #enableSshdAtBoot = false;
 
-  #users.users.solomon.extraGroups = [ "networkmanager" ];
-  #networking.networkmanager.enable = true;
-
-  networking = {
-    wireless = {
-      enable = true;
-      networks = {
-        TP-LINK_0573_5G = {
-          pskRaw = "43c10b524fcb5286ff0242495ad099a837ff5fe9836bbffa1ae1831303884b7d";
-        };
-      };
-    };
-    useDHCP = false;
-  };
+  primary-user.extraGroups = [ "networkmanager" ];
 
   system.stateVersion = "20.09";
 

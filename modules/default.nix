@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./nixos/xserver.nix
     ./nixos/network-interfaces.nix
     ./nixos/primary-user.nix
 

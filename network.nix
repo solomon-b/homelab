@@ -4,9 +4,11 @@ let
   mkMachine = targetHost: { config, ... }: {
     deployment = {
       inherit targetHost;
-      #targetUser = 'solomon';
-      #sshOptions = [ "-A" ];
+      targetUser = config.primary-user.name;
+      sshOptions = [ "-A" ];
+      provisionSSHKey = false;
     };
+
     imports = [ "${toString machineDir}/${targetHost}" ];
   };
 

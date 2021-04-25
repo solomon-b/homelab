@@ -32,6 +32,8 @@
       if [ -f ${config.primary-user.home-manager.home.sessionVariables.SCRIPTS}/functions ]; then
           source ${config.primary-user.home-manager.home.sessionVariables.SCRIPTS}/functions
       fi
+
+      [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
     '';
 
     shellAliases = {

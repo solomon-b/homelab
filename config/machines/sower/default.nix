@@ -7,9 +7,7 @@
   ];
 
 
-  primary-user = {
-    name = "solomon";
-  };
+  primary-user.name = "solomon";
 
   networking = {
     hostName = "sower";
