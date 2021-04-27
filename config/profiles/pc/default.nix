@@ -19,6 +19,7 @@
     ../../modules/ui/lorri
     ../../modules/ui/opengl
     ../../modules/ui/termonad
+    ../../modules/ui/xmobar
     ../../modules/ui/xserver
 
     # TODO: Write Modules:
@@ -48,7 +49,6 @@
     dunst
     dunstStatus
     dmenu
-    haskellPackages.xmobar
     libnotify
     networkmanagerapplet
     trayer

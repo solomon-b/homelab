@@ -15,6 +15,7 @@
     imports = [
       ./home-manager/termonad.nix
       ./home-manager/kmonad.nix
+      ./home-manager/xmobar.nix
       ./home-manager/zshExtras.nix
     ];
   };
