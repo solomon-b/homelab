@@ -1,7 +1,18 @@
 { ... }:
 
+let
+  sources = import ../../../../nix/sources.nix;
+in
 {
-  nixpkgs.config.allowUnfree = true;
+  nix.nixPath = [ "nixpkgs=${sources.nixpkgs}" ];
+
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = [
+      (import ../../../../packages/dunstStatus/overlay.nix)
+      (import ../../../../packages/acpiPower/overlay.nix)
+    ];
+  };
 
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 14d";

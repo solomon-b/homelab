@@ -1,4 +1,3 @@
-
 { config, pkgs, lib, ... }:
 
 with lib;
@@ -10,12 +9,11 @@ in
     enable = mkOption {
       type = types.bool;
       default = false;
-      description = "Enable termonad";
+      description = "Enable s3fs-fuse";
     };
   };
 
   config = mkIf cfg.enable {
     home.packages = [ pkgs.s3fs ];
-    #xdg.configFile."termonad/termonad.hs".source = cfg.config;
   };
 }

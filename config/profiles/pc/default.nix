@@ -46,6 +46,7 @@
 
     # Desktop Environment
     dunst
+    dunstStatus
     dmenu
     haskellPackages.xmobar
     libnotify
