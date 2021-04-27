@@ -12,7 +12,8 @@
     ../../modules/system/redis
 
     ../../modules/ui/audio
-     ../../modules/ui/direnv
+    ../../modules/ui/direnv
+    ../../modules/ui/dunst
     ../../modules/ui/fonts
     ../../modules/ui/git
     ../../modules/ui/kmonad
@@ -46,7 +47,6 @@
     cabal2nix
 
     # Desktop Environment
-    dunst
     dunstStatus
     dmenu
     libnotify
