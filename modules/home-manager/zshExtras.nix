@@ -4,7 +4,6 @@ with lib;
 
 let
   cfg = config.programs.zsh;
-  relToDotDir = file: (optionalString (cfg.dotDir != null) (cfg.dotDir + "/")) + file;
   autoSuggestionsModule = types.submodule({config, ...}: {
     options.highlightStyle = mkOption {
       type = types.str;
@@ -79,7 +78,7 @@ in
 
 
   config = mkIf cfg.enable {
-    home.file."${relToDotDir ".zshrc"}".text = ''
+    home.file.".zshrc".text = ''
       ${optionalString cfg.enableHistorySubstringSearch
         "source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
       }

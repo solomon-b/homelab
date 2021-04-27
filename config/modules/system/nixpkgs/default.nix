@@ -9,8 +9,8 @@ in
   nixpkgs = {
     config.allowUnfree = true;
     overlays = [
-      (import ../../../../packages/dunstStatus/overlay.nix)
-      (import ../../../../packages/acpiPower/overlay.nix)
+      (import ../../../../overlays/acpiPower.nix)
+      (import ../../../../overlays/dunstStatus.nix)
     ];
   };
 

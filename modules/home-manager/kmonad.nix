@@ -2,7 +2,6 @@
 
 with lib;
 let
-  kmonad = pkgs.callPackage ../../packages/kmonad/derivation.nix { };
   cfg = config.programs.kmonad;
 in
 {
@@ -39,6 +38,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    nixpkgs.overlays = [ (import ../../overlays/kmonad.nix) ];
+
     xdg.configFile."kmonad.kbd".text = ''
       ${cfg.defcfg}
       ${cfg.defsrc}
@@ -46,6 +47,6 @@ in
       ${cfg.deflayers}
     '';
 
-    home.packages = [ kmonad ];
+    home.packages = [ pkgs.kmonad ];
   };
 }

@@ -8,7 +8,6 @@ Special thanks to Connor Prussin for so much help.
 
 - [ ] Add a dunst config home manager module
 - [ ] Move xmobar config into project
-- [ ] Reorganizing ./packages folder
 - [ ] Learn how to do secrets management with nixops
 - [ ] Configure s3fs with digital ocean spaces for nextcloud
 - [ ] Actually deploy my laptop
