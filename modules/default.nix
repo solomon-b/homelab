@@ -13,6 +13,7 @@
 
   primary-user.home-manager = _: {
     imports = [
+      ./home-manager/termonad.nix
       ./home-manager/kmonad.nix
       ./home-manager/zshExtras.nix
     ];

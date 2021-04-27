@@ -2,12 +2,8 @@
 
 with lib;
 let
-  homeDir = config.home.homeDirectory;
   kmonad = pkgs.callPackage ../../packages/kmonad/derivation.nix { };
-in
-let
   cfg = config.programs.kmonad;
-  relToDotDir = file: (optionalString (homeDir != null) (homeDir + "/.config/")) + file;
 in
 {
   options.programs.kmonad = {
@@ -43,7 +39,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.file."${relToDotDir "kmonad.kbd"}".text = ''
+    xdg.configFile."kmonad.kbd".text = ''
       ${cfg.defcfg}
       ${cfg.defsrc}
       ${cfg.defaliases}

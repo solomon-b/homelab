@@ -1,5 +1,6 @@
 let
+  sources = import ../../nix/sources.nix;
   kmonad = import ./overlay.nix;
-  pkgs = import <nixpkgs> { overlays = [ kmonad ]; };
+  pkgs = import sources.nixpkgs { overlays = [ kmonad ]; };
 in
 pkgs.kmonad

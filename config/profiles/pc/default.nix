@@ -9,37 +9,32 @@
     # ../../modules/system/docker
     # ../../modules/system/virtualbox
     ../../modules/system/postgresql
+    ../../modules/system/redis
 
     ../../modules/ui/audio
      ../../modules/ui/direnv
-    # ../../modules/ui/emacs
     ../../modules/ui/fonts
     ../../modules/ui/git
     ../../modules/ui/kmonad
     ../../modules/ui/lorri
     ../../modules/ui/opengl
+    ../../modules/ui/termonad
     ../../modules/ui/xserver
 
     # TODO: Write Modules:
+    # ../../modules/ui/emacs
     # ../../../modules/nixos/lightlocker.nix
-    # ../../../modules/nixos/kmonad.nix
-
     # ../../modules/ui/zathura # Home Manager
   ];
 
   #enableSshdAtBoot = false;
 
-  primary-user.extraGroups = [ "networkmanager" ];
-
-  system.stateVersion = "20.09";
-
   environment.systemPackages = with pkgs; [
     # CLI Tools
     inetutils
-    #kmonad
-    udiskie
+    niv
     rclone
-    starship
+    udiskie
     yadm # to be removed when i setup home-manager
 
     # Editors
@@ -55,7 +50,6 @@
     haskellPackages.xmobar
     libnotify
     networkmanagerapplet
-    termonad-with-packages
     trayer
     xbanish
     xlayoutdisplay
@@ -67,10 +61,6 @@
     feh
     obs-studio
 
-    # Web Browsers
-    firefox-beta-bin
-    google-chrome
-
     # Chat/Communication
     slack
     zoom-us
@@ -80,5 +70,13 @@
     texlive.combined.scheme-full
     python37Packages.pygments
     poppler_utils
+
+    # Web Browsers
+    firefox-beta-bin
+    google-chrome
   ];
+
+  primary-user.extraGroups = [ "networkmanager" ];
+
+  system.stateVersion = "20.09";
 }

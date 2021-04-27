@@ -1,8 +1,8 @@
 { fetchurl, runCommand, stdenv }:
 let
   kmonad-bin = fetchurl {
-    url = "https://github.com/david-janssen/kmonad/releases/download/0.3.0/kmonad-0.3.0-linux";
-    sha256 = "4545b0823dfcffe0c4f0613916a6f38a0ccead0fb828c837de54971708bafc0b";
+    url = "https://github.com/david-janssen/kmonad/releases/download/0.4.1/kmonad-0.4.1-linux";
+    sha256 = "13vs7xq9clgg6pd9gr49h5ljgyg0kc63qd3ghh3dvmi3rkkmi7l3";
   };
 in
   runCommand "kmonad" {}
