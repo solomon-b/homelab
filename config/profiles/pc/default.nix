@@ -29,12 +29,11 @@
     # ../../modules/ui/zathura # Home Manager
   ];
 
-  #enableSshdAtBoot = false;
-
   environment.systemPackages = with pkgs; [
     # CLI Tools
     inetutils
     niv
+    pass
     rclone
     udiskie
     yadm # to be removed when i setup home-manager
@@ -43,7 +42,6 @@
     emacs
 
     # Haskell Dev Tools
-    cabal-install
     cabal2nix
 
     # Desktop Environment

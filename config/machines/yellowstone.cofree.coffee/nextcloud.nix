@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let
+  passwords = pkgs.callPackage ../../../lib/passwords.nix { };
+in
 {
   services.nextcloud = {
     enable = true;
@@ -22,7 +25,10 @@
       dbuser = "nextcloud";
       dbhost = "/run/postgresql"; # nextcloud will add /.s.PGSQL.5432 by itself
       dbname = "nextcloud";
-      dbpassFile = "/var/nextcloud-db-pass";
+      dbpassFile = {
+        keyCommand = passwords.getHashedUserPassword
+        destDir = "/secrets"
+      }; #"/var/nextcloud-db-pass";
 
       adminpassFile = "/var/nextcloud-admin-pass";
       adminuser = "admin";

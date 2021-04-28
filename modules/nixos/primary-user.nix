@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.primary-user;
+  passwords = pkgs.callPackage ../../lib/passwords.nix { };
 in
 {
   options.primary-user.name = lib.mkOption {
@@ -17,18 +18,25 @@ in
     (lib.mkAliasOptionModule [ "primary-user" "uid" ] [ "users" "users" cfg.name "uid" ])
     (lib.mkAliasOptionModule [ "primary-user" "openssh" ] [ "users" "users" cfg.name "openssh" ])
     (lib.mkAliasOptionModule [ "primary-user" "isNormalUser" ] [ "users" "users" cfg.name "isNormalUser" ])
+    (lib.mkAliasOptionModule [ "primary-user" "passwordFile" ] [ "users" "users" cfg.name "passwordFile" ])
   ];
 
   config = lib.mkIf (cfg.name != null) {
+    deployment.keys.primary-user-password = {
+      keyCommand = passwords.getHashedUserPassword "System/solomon";
+      destDir = "/secrets";
+    };
+
     primary-user = {
       extraGroups = [ "wheel" ];
-      uid = lib.mkDefault 1000;
-      isNormalUser = true;
       home-manager = {
         home.username = cfg.name;
         home.homeDirectory = "/home/${cfg.name}";
         home.stateVersion = "21.03";
       };
+      isNormalUser = true;
+      passwordFile = config.deployment.keys.primary-user-password.path;
+      uid = lib.mkDefault 1000;
     };
 
     nix.trustedUsers = [ cfg.name ];
