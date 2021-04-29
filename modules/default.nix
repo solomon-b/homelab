@@ -4,6 +4,7 @@
   imports = [
     ./nixos/network-interfaces.nix
     ./nixos/primary-user.nix
+    ./nixos/s3fs.nix
 
     # ./nixos/powerpanel.nix # Ask Connor
     # ./nixos/preLVMTempMount.nix # Is this temp fs related?

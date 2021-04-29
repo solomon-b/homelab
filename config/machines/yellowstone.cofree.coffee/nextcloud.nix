@@ -1,8 +1,24 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   passwords = pkgs.callPackage ../../../lib/passwords.nix { };
 in
 {
+  deployment.keys = {
+    nextcloud-db-pass = {
+      keyCommand = passwords.getPassword "system/yellowstone/next-cloud/db-pass";
+      destDir = "/secrets";
+      user = "nextcloud";
+    };
+
+    nextcloud-admin-pass = {
+      keyCommand = passwords.getPassword "system/yellowstone/next-cloud/admin-pass";
+      destDir = "/secrets";
+      user = "nextcloud";
+    };
+  };
+
+  environment.systemPackages = [ pkgs.smbclient ];
+
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud20;
@@ -25,15 +41,13 @@ in
       dbuser = "nextcloud";
       dbhost = "/run/postgresql"; # nextcloud will add /.s.PGSQL.5432 by itself
       dbname = "nextcloud";
-      dbpassFile = {
-        keyCommand = passwords.getHashedUserPassword
-        destDir = "/secrets"
-      }; #"/var/nextcloud-db-pass";
-
-      adminpassFile = "/var/nextcloud-admin-pass";
+      dbpassFile = config.deployment.keys.nextcloud-db-pass.path;
+      adminpassFile = config.deployment.keys.nextcloud-admin-pass.path;
       adminuser = "admin";
     };
   };
+
+  users.users.nextcloud.extraGroups = [ "keys" ];
 
   services.postgresql = {
     ensureDatabases = [ "nextcloud" ];

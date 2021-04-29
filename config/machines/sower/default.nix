@@ -6,6 +6,7 @@
     ../../profiles/pc
   ];
 
+  programs.s3fs.enable = true;
 
   primary-user.name = "solomon";
 

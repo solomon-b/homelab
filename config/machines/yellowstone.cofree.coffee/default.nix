@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   imports = [
     ../../profiles/base
@@ -14,6 +14,8 @@
   boot.cleanTmpDir = true;
 
   primary-user.name = "solomon";
+
+  #programs.s3fs.enable = true;
 
   networking = {
     firewall.allowPing = true;

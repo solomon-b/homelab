@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  users.mutableUsers = false;
+
   users.users.solomon = {
     home = "/home/solomon";
     shell = pkgs.zsh;

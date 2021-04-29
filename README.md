@@ -6,6 +6,5 @@ Special thanks to Connor Prussin for so much help.
 
 # Todo
 
-- [ ] Learn how to do secrets management with nixops
 - [ ] Configure s3fs with digital ocean spaces for nextcloud
 - [ ] Actually deploy my laptop

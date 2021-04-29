@@ -23,7 +23,7 @@ in
 
   config = lib.mkIf (cfg.name != null) {
     deployment.keys.primary-user-password = {
-      keyCommand = passwords.getHashedUserPassword "System/solomon";
+      keyCommand = passwords.getHashedUserPassword "system/solomon";
       destDir = "/secrets";
     };
 
