@@ -10,6 +10,12 @@ in
     description = "The name of the primary user account.";
   };
 
+  options.primary-user.wireguardPubKey = lib.mkOption {
+    type = lib.types.nullOr lib.types.str;
+    default = null;
+    description = "Wireguard Public Key";
+  };
+
   imports = [
     (lib.mkAliasOptionModule [ "primary-user" "home-manager" ] [ "home-manager" "users" cfg.name ])
     (lib.mkAliasOptionModule [ "primary-user" "home" ] [ "users" "users" cfg.name "home" ])
@@ -27,6 +33,11 @@ in
       destDir = "/secrets";
     };
 
+    deployment.keys.primary-user-wireguard-pubkey = {
+      keyCommand = passwords.getFullPassword "system/solomon/wireguard/public-key";
+      destDir = "/secrets";
+    };
+
     primary-user = {
       extraGroups = [ "wheel" ];
       home-manager = {
@@ -36,6 +47,7 @@ in
       };
       isNormalUser = true;
       passwordFile = config.deployment.keys.primary-user-password.path;
+      wireguardPubKey = builtins.extraBuiltins.getFullPasswordValue pkgs "solomon/wireguard/public-key";
       uid = lib.mkDefault 1000;
     };
 

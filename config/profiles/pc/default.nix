@@ -6,10 +6,11 @@
 
     ../../modules/security/gpg
 
-    # ../../modules/system/docker
+    ../../modules/system/docker
     # ../../modules/system/virtualbox
     ../../modules/system/postgresql
     ../../modules/system/redis
+    ../../modules/system/syncthing
 
     ../../modules/ui/audio
     ../../modules/ui/direnv
@@ -36,7 +37,8 @@
     pass
     rclone
     udiskie
-    yadm # to be removed when i setup home-manager
+    sqlite # for org-roam, should I move to postgres? How would I sync between machines in that case?
+
 
     # Editors
     emacs
@@ -76,6 +78,7 @@
   ];
 
   primary-user.extraGroups = [ "networkmanager" ];
+  primary-user.home-manager.home.file.".wallpaper.jpg".source = ./wallpaper.jpg;
 
   system.stateVersion = "20.09";
 }

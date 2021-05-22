@@ -9,6 +9,7 @@
     ./nextcloud.nix
     ./nginx.nix
     ./postgres.nix
+    ./wireguard.nix
   ];
 
   boot.cleanTmpDir = true;

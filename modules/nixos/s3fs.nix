@@ -18,8 +18,9 @@ in
     deployment.keys = {
       s3fs-api-token = {
         keyCommand = passwords.getPassword "system/absolution-gap/api-token";
-        #destDir = "/secrets";
+        destDir = "/secrets";
         user = config.primary-user.name;
+        group = "users";
       };
     };
 
