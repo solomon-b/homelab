@@ -39,7 +39,7 @@ in
       privateKeyFile = config.deployment.keys.wireguard-private-key.path;
 
       peers = [
-        { publicKey = primary-user.wireguardPubKey;
+        { publicKey = config.primary-user.wireguardPubKey;
           allowedIPs = [ "10.100.0.2/32" ];
         }
       ];

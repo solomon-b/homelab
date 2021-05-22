@@ -1,6 +1,8 @@
 let
   sources = import ./nix/sources.nix;
-  nixops = import sources.nixops;
+  nixpkgs = sources.nixpkgs;
+  nixops = sources.nixops;
+  nixops-built = (import nixops).default;
 
   mkExtraBuiltinsCli = pkgs: opts: builtins.concatStringsSep " " (
     pkgs.lib.mapAttrsToList (option: value: "--option ${option} ${value}") opts
@@ -8,7 +10,7 @@ let
 
   extraBuiltinsOptions = pkgs: mkExtraBuiltinsCli pkgs {
     plugin-files = "${pkgs.nix-plugins}/lib/nix/plugins/libnix-extra-builtins.so";
-    extra-builtins-file = "$(nix-build --no-out-link)/lib/extra-builtins.nix";
+    extra-builtins-file = ./lib/extra-builtins.nix;
   };
 
   nixops-wrapped = pkgs: pkgs.writeShellScriptBin "nixops" ''
@@ -23,7 +25,7 @@ let
       name = "nixops";
       paths = [
         (nixops-wrapped self)
-        nixops.default
+        nixops-built
       ];
     };
   };
@@ -32,7 +34,7 @@ let
     passwordUtils = (self.callPackage ./lib/passwords.nix { }).passwordUtils;
   };
 
-  pkgs = import sources.nixpkgs {
+  pkgs = import nixpkgs {
     overlays = [ nixops-overlay password-utils-overlay ];
   };
 
