@@ -2,7 +2,7 @@
 let
   stringify = pkgs: "${pkgs.gnused}/bin/sed '1s/^/\"/;$s/$/\"/'";
   runCmd = pkgs: cmd: exec [ "sh" "-c" "${cmd} | ${stringify pkgs}" ];
-  passwords = pkgs: pkgs.callPackage ./lib/passwords.nix { };
+  passwords = pkgs: pkgs.callPackage ./passwords.nix { };
   getPassword = pkgs: "${(passwords pkgs).passwordUtils}/bin/getPassword";
   getFullPassword = pkgs: "${(passwords pkgs).passwordUtils}/bin/getFullPassword";
   getPasswordField = pkgs: "${(passwords pkgs).passwordUtils}/bin/getPasswordField";

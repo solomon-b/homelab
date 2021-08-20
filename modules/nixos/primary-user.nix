@@ -2,6 +2,13 @@
 let
   cfg = config.primary-user;
   passwords = pkgs.callPackage ../../lib/passwords.nix { };
+  androidModule = lib.types.submodule ({config, ...}: {
+    options.wireguardPubKey = lib.mkOption {
+      type = lib.types.str;
+      default = "";
+      description = "Wireguard public key";
+    };
+  });
 in
 {
   options.primary-user.name = lib.mkOption {
@@ -14,6 +21,12 @@ in
     type = lib.types.nullOr lib.types.str;
     default = null;
     description = "Wireguard Public Key";
+  };
+
+  options.primary-user.android = lib.mkOption {
+    type = lib.types.nullOr androidModule;
+    default = null;
+    description = "Android phone metadata";
   };
 
   imports = [
@@ -47,8 +60,9 @@ in
       };
       isNormalUser = true;
       passwordFile = config.deployment.keys.primary-user-password.path;
-      wireguardPubKey = builtins.extraBuiltins.getFullPasswordValue pkgs "solomon/wireguard/public-key";
+      wireguardPubKey = builtins.extraBuiltins.getFullPasswordValue pkgs "system/solomon/wireguard/public-key";
       uid = lib.mkDefault 1000;
+      android.wireguardPubKey = builtins.extraBuiltins.getFullPasswordValue pkgs "system/android/wireguard/public-key";
     };
 
     nix.trustedUsers = [ cfg.name ];

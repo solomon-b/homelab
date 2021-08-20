@@ -10,7 +10,7 @@ in
       user = "nextcloud";
     };
   };
-  environment.systemPackages = [ pkgs.wireguard ];
+  environment.systemPackages = [ pkgs.wireguard pkgs.wireguard-tools ];
 
   # enable NAT
   networking.nat.enable = true;
@@ -41,6 +41,12 @@ in
       peers = [
         { publicKey = config.primary-user.wireguardPubKey;
           allowedIPs = [ "10.100.0.2/32" ];
+        }
+        { publicKey = config.primary-user.android.wireguardPubKey;
+          allowedIPs = [ "10.100.0.3/32" ];
+        }
+        { publicKey = builtins.extraBuiltins.getFullPasswordValue pkgs "system/sower/wireguard/public-key";
+          allowedIPs = [ "10.100.0.4/32" ];
         }
       ];
     };

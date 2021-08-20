@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware.nix
+    ./wireguard.nix
     ../../profiles/pc
   ];
 

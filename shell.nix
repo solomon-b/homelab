@@ -10,7 +10,7 @@ let
 
   extraBuiltinsOptions = pkgs: mkExtraBuiltinsCli pkgs {
     plugin-files = "${pkgs.nix-plugins}/lib/nix/plugins/libnix-extra-builtins.so";
-    extra-builtins-file = ./lib/extra-builtins.nix;
+    extra-builtins-file = "$(nix-build --no-out-link)/lib/extra-builtins.nix";
   };
 
   nixops-wrapped = pkgs: pkgs.writeShellScriptBin "nixops" ''
