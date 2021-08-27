@@ -17,6 +17,8 @@
       size = 50000;
     };
 
+    saveNoDups = true; # This should be in the history submodule but I dont own it.
+
     historySubstring = {
       highlightFound = "fg=green";
       highlightNotFound = "fg=red";

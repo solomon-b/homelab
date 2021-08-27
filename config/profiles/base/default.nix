@@ -14,7 +14,7 @@ in{
     ../../modules/data/session-vars
 
     ../../modules/security/gpg
-    ../../modules/security/process-information-hiding
+    #../../modules/security/process-information-hiding
     ../../modules/security/sshd
     # ../../modules/security/sudo  # Ask Connor
 

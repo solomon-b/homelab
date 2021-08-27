@@ -48,7 +48,8 @@
     cabal2nix
 
     # Desktop Environment
-    dunstStatus
+    batsignal
+    #dunstStatus
     dmenu
     libnotify
     networkmanagerapplet

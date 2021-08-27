@@ -14,9 +14,11 @@
         #lightdm.background = "/usr/share/backgrounds/Vaporwave.jpg";
       };
       libinput.enable = true;
-      libinput.clickMethod = "clickfinger";
-      libinput.tapping = false;
-      libinput.disableWhileTyping = true;
+      libinput.touchpad = {
+        clickMethod = "clickfinger";
+        tapping = false;
+        disableWhileTyping = true;
+      };
   };
 
   primary-user.home-manager.xsession = {

@@ -6,7 +6,10 @@
     enableZshIntegration = true;
     settings = {
       add_newline = false;
-      character.symbol = "➜";
+      character = {
+        success_symbol = "➜";
+        error_symbol = "✗";
+      };
       line_break.disabled = true;
     };
   };

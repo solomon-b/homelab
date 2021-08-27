@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.primary-user;
+  hostname = config.networking.hostName;
   passwords = pkgs.callPackage ../../lib/passwords.nix { };
   androidModule = lib.types.submodule ({config, ...}: {
     options.wireguardPubKey = lib.mkOption {
@@ -42,12 +43,12 @@ in
 
   config = lib.mkIf (cfg.name != null) {
     deployment.keys.primary-user-password = {
-      keyCommand = passwords.getHashedUserPassword "system/solomon";
+      keyCommand = passwords.getHashedUserPassword "system/${hostname}/${cfg.name}/password";
       destDir = "/secrets";
     };
 
     deployment.keys.primary-user-wireguard-pubkey = {
-      keyCommand = passwords.getFullPassword "system/solomon/wireguard/public-key";
+      keyCommand = passwords.getFullPassword "system/${hostname}/wireguard/public-key";
       destDir = "/secrets";
     };
 

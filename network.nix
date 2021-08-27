@@ -18,5 +18,7 @@ let
       (builtins.readDir machineDir);
 in
 all-machines // {
-  network.description = "Homelab";
+  network = {
+    description = "Homelab";
+  };
 }

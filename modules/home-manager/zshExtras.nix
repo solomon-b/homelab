@@ -74,6 +74,14 @@ in
       default = {};
       description = "Options related to Autosuggestions";
     };
+
+    saveNoDups = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        Don't write duplicate entries in the history file. Defaults to false.
+      '';
+    };
   };
 
 
@@ -105,6 +113,9 @@ in
 
       ${if cfg.enableHistorySubstringSearch
         then "typeset -g HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE='${cfg.historySubstring.ensureUnique}'"
+        else ""}
+      ${if cfg.saveNoDups
+        then "setopt HIST_SAVE_NO_DUPS"
         else ""}
     '';
   };
