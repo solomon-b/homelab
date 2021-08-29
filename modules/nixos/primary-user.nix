@@ -53,7 +53,7 @@ in
     };
 
     primary-user = {
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "wheel" "users" ];
       home-manager = {
         home.username = cfg.name;
         home.homeDirectory = "/home/${cfg.name}";
