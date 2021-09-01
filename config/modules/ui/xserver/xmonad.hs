@@ -90,11 +90,11 @@ myTabTheme = def
 --- Layouts ---
 ---------------
 
-gap    = 4
-topbar = 10
-border = 0
-prompt = 20
-status = 20
+gap      = 4
+topbar   = 10
+myBorder = 0
+prompt   = 20
+status   = 20
 
 mySpacing = spacing gap
 myGaps = gaps [(U, gap),(D, gap),(L, gap),(R, gap)]
@@ -281,12 +281,12 @@ myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList
 myStartupHook :: X ()
 myStartupHook = do
     spawn "nm-applet"
-    spawn "feh --bg-scale /home/solomon/.wallpaper.jpg"
+    spawn "feh --bg-scale /home/solomon/Images/Wallpapers/Vaporwave.jpg"
     spawn "xbanish"
     spawn "trayer --edge top --width 4 --align right --height 23 --transparent true --alpha 75 --tint 0x2d2d2d"
     spawn "dunst"
-    --spawn "batsignal -b -W \"Warning: Battery Low\""
-    spawn "sleep 2 && kmonad /home/solomon/.config/kmonad.kbd"
+    spawn "batsignal -b -W \"Warning: Battery Low\""
+    spawn "sleep 2 && kmonad /home/solomon/.local/etc/kmonad.kbd"
 
 
 myConfig xmproc = def
@@ -295,7 +295,7 @@ myConfig xmproc = def
     , logHook               = dynamicLogWithPP xmobarPP
         { ppCurrent         = xmobarColor yellow mempty
         , ppOutput          = hPutStrLn xmproc
-        , ppLayout          = drop 18
+        , ppLayout          = id -- drop 18
         , ppTitle           = xmobarColor foreground mempty . shorten 85
         , ppHidden          = \ws -> if ws == "NSP" then mempty else ws
         , ppHiddenNoWindows = const mempty
@@ -307,6 +307,7 @@ myConfig xmproc = def
     , normalBorderColor     = myNormalBorderColor
     , focusedBorderColor    = myFocusedBorderColor
     , startupHook           = myStartupHook
+    , borderWidth           = 0
     }
 
 addSupported :: [String] -> X ()
@@ -328,5 +329,5 @@ ewmhFullscreen c = c { startupHook     = startupHook c <+> setFullscreenSupporte
 
 main :: IO ()
 main = do
-    xmproc <- spawnPipe "xmobar ~/.xmobarrc"
+    xmproc <- spawnPipe "xmobar"
     xmonad . ewmhFullscreen . ewmh . docks . withNavigation2DConfig myNav2DConf $ myConfig xmproc
