@@ -1,4 +1,16 @@
 {
+    "dunstStatus": {
+        "branch": "main",
+        "description": null,
+        "homepage": null,
+        "owner": "ssbothwell",
+        "repo": "dunstStatus",
+        "rev": "a5b034e11dc83e3fc000cb9ec0cdb6faed4b1690",
+        "sha256": "03l59kaqsc44xgm2rhzk3yy2wi2c8gwbsnb4rd254wag50hzvfqw",
+        "type": "tarball",
+        "url": "https://github.com/ssbothwell/dunstStatus/archive/a5b034e11dc83e3fc000cb9ec0cdb6faed4b1690.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "niv": {
         "branch": "master",
         "description": "Easy dependency management for Nix projects",
@@ -33,6 +45,18 @@
         "sha256": "1byrw1inwrlw7yp5dwvdf0zv1zdqnjq32j1j7cmlwah4x7f46bvg",
         "type": "tarball",
         "url": "https://github.com/NixOS/nixpkgs/archive/7bbca9877caed472c6b5866ea09302cfcdce3dbf.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "xmobar-solomon": {
+        "branch": "main",
+        "description": "My Xmobar Config",
+        "homepage": null,
+        "owner": "ssbothwell",
+        "repo": "xmobar-solomon",
+        "rev": "b8ac77b44a51bdefc8606f69ef0ef64f831726d3",
+        "sha256": "0vzqyr1cskg73z3ipk3k6cnmsli9lqwnhl0580dwknp9l3lqqrn4",
+        "type": "tarball",
+        "url": "https://github.com/ssbothwell/xmobar-solomon/archive/b8ac77b44a51bdefc8606f69ef0ef64f831726d3.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

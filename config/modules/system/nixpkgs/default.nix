@@ -11,6 +11,9 @@ in
     overlays = [
       (import ../../../../overlays/acpiPower.nix)
       (import ../../../../overlays/dunstStatus.nix)
+      # TODO: Why does the xmobar overlay not work here but it does in
+      # the module?
+      # (import ../../../../overlays/xmobar-solomon.nix)
     ];
   };
 
