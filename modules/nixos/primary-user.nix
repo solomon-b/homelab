@@ -53,16 +53,20 @@ in
     };
 
     primary-user = {
-      extraGroups = [ "wheel" "users" ];
+      extraGroups = [ "wheel" "users" "keys" "input" ];
+
       home-manager = {
         home.username = cfg.name;
         home.homeDirectory = "/home/${cfg.name}";
         home.stateVersion = "21.03";
       };
+
       isNormalUser = true;
       passwordFile = config.deployment.keys.primary-user-password.path;
-      wireguardPubKey = builtins.extraBuiltins.getFullPasswordValue pkgs "system/solomon/wireguard/public-key";
+      shell = pkgs.zsh;
       uid = lib.mkDefault 1000;
+
+      wireguardPubKey = builtins.extraBuiltins.getFullPasswordValue pkgs "system/solomon/wireguard/public-key";
       android.wireguardPubKey = builtins.extraBuiltins.getFullPasswordValue pkgs "system/android/wireguard/public-key";
     };
 
