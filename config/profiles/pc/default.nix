@@ -20,6 +20,7 @@
     ../../modules/ui/kmonad
     ../../modules/ui/lorri
     ../../modules/ui/opengl
+    ../../modules/ui/picom
     ../../modules/ui/termonad
     ../../modules/ui/xmobar
     ../../modules/ui/xserver

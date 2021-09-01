@@ -285,7 +285,7 @@ myStartupHook = do
     spawn "xbanish"
     spawn "trayer --edge top --width 4 --align right --height 23 --transparent true --alpha 75 --tint 0x2d2d2d"
     spawn "dunst"
-    spawn "batsignal -b -W \"Warning: Battery Low\""
+    --spawn "batsignal -b -W \"Warning: Battery Low\""
     spawn "sleep 2 && kmonad /home/solomon/.local/etc/kmonad.kbd"
 
 
