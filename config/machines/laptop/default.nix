@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-let
-  acpiPower = pkgs.callPackage ../../../packages/acpiPower.nix { };
-in
 {
   imports = [
     ./hardware.nix
