@@ -15,7 +15,6 @@
 
   environment.systemPackages = [
     pkgs.acpi
-    pkgs.acpiPower
   ];
 
   primary-user.name = "solomon";

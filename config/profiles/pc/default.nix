@@ -31,9 +31,12 @@
     # ../../modules/ui/zathura # Home Manager
   ];
 
+  nixpkgs.overlays = [ (import ../../../overlays/graphqurl.nix) ];
+
   environment.systemPackages = with pkgs; [
     # CLI Tools
     inetutils
+    graphqurl
     niv
     pass
     rclone

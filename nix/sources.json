@@ -11,6 +11,18 @@
         "url": "https://github.com/ssbothwell/dunstStatus/archive/a5b034e11dc83e3fc000cb9ec0cdb6faed4b1690.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "graphqurl-nix": {
+        "branch": "main",
+        "description": "nix wrapper for graphqurl",
+        "homepage": null,
+        "owner": "ssbothwell",
+        "repo": "graphqurl-nix",
+        "rev": "aadbf068e6a6c7c05d1da4260907b027f835c14c",
+        "sha256": "0038vgzw8qzdaqgj8p67wgyyl2nr9p9vxhixcvl4qsxv9szj9rcj",
+        "type": "tarball",
+        "url": "https://github.com/ssbothwell/graphqurl-nix/archive/aadbf068e6a6c7c05d1da4260907b027f835c14c.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "niv": {
         "branch": "master",
         "description": "Easy dependency management for Nix projects",
@@ -53,10 +65,10 @@
         "homepage": null,
         "owner": "ssbothwell",
         "repo": "xmobar-solomon",
-        "rev": "b8ac77b44a51bdefc8606f69ef0ef64f831726d3",
-        "sha256": "0vzqyr1cskg73z3ipk3k6cnmsli9lqwnhl0580dwknp9l3lqqrn4",
+        "rev": "5e8bf0b70e23c5e992cee45921dcc825e3ff624c",
+        "sha256": "0i8d3dhg0spvrqq8nxa53c1grrhrrycbi1h5mgf010gwrk8jfp3h",
         "type": "tarball",
-        "url": "https://github.com/ssbothwell/xmobar-solomon/archive/b8ac77b44a51bdefc8606f69ef0ef64f831726d3.tar.gz",
+        "url": "https://github.com/ssbothwell/xmobar-solomon/archive/5e8bf0b70e23c5e992cee45921dcc825e3ff624c.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
