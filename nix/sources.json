@@ -1,16 +1,4 @@
 {
-    "dunstStatus": {
-        "branch": "main",
-        "description": null,
-        "homepage": null,
-        "owner": "ssbothwell",
-        "repo": "dunstStatus",
-        "rev": "a5b034e11dc83e3fc000cb9ec0cdb6faed4b1690",
-        "sha256": "03l59kaqsc44xgm2rhzk3yy2wi2c8gwbsnb4rd254wag50hzvfqw",
-        "type": "tarball",
-        "url": "https://github.com/ssbothwell/dunstStatus/archive/a5b034e11dc83e3fc000cb9ec0cdb6faed4b1690.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "graphqurl-nix": {
         "branch": "main",
         "description": "nix wrapper for graphqurl",
@@ -65,10 +53,10 @@
         "homepage": null,
         "owner": "ssbothwell",
         "repo": "xmobar-solomon",
-        "rev": "5e8bf0b70e23c5e992cee45921dcc825e3ff624c",
-        "sha256": "0i8d3dhg0spvrqq8nxa53c1grrhrrycbi1h5mgf010gwrk8jfp3h",
+        "rev": "b035e55b39cb8bcca31093f1a9ee3cec2c94ecbc",
+        "sha256": "0mfgamsk6y6n0fzjksz501hg7ick7c44an382z13hky14j2y092f",
         "type": "tarball",
-        "url": "https://github.com/ssbothwell/xmobar-solomon/archive/5e8bf0b70e23c5e992cee45921dcc825e3ff624c.tar.gz",
+        "url": "https://github.com/ssbothwell/xmobar-solomon/archive/b035e55b39cb8bcca31093f1a9ee3cec2c94ecbc.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

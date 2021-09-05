@@ -54,7 +54,6 @@
     # Desktop Environment
     batsignal
     dunst
-    dunstStatus
     dmenu
     libnotify
     networkmanagerapplet
